@@ -1,5 +1,5 @@
 const ringButtons = document.querySelectorAll(".ring-button");
-
+let productImageBase = "../images/";
 for (let i = 0; i < ringButtons.length; i++) {
   const ringBtn = ringButtons[i];
   ringBtn.addEventListener("click", function (event) {
@@ -16,7 +16,7 @@ for (let i = 0; i < ringButtons.length; i++) {
     const productImage = document.getElementById("product-image");
     // productImage.src = "../images/gray.png";
     // productImage.src = `../images/${color}.png`;
-    productImage.src = "../images/" + color + ".png";
+    productImage.src = productImageBase + color + ".png";
   });
 }
 
@@ -58,7 +58,9 @@ document.getElementById("add-to-cart").addEventListener("click", function () {
     const selectedColorButton = document.querySelector(
       "button.border-purple-600.w-6"
     );
-    const selectedColor = selectedColorButton.id.split("-")[0];
+    const selectedColor = selectedColorButton
+      ? selectedColorButton.id.split("-")[0]
+      : "S";
 
     const selectedSizeButtons = document.querySelector(
       "button.border-purple-600:not(.w-6)"
@@ -73,6 +75,7 @@ document.getElementById("add-to-cart").addEventListener("click", function () {
       title: " Classy Modern Smart Watch",
       color: selectedColor,
       size: selectedSize,
+      quantity: quantity,
       price: quantity * parseInt(selectedPrice),
     });
 
@@ -81,3 +84,37 @@ document.getElementById("add-to-cart").addEventListener("click", function () {
     alert("Please select a quantity...");
   }
 });
+
+document.getElementById("checkout-btn").addEventListener("click", function () {
+  const cartModal = document.getElementById("cart-modal");
+
+  const cartConatainer = document.getElementById("cart-items");
+
+  for (let i = 0; i < cartItems.length; i++) {
+    const item = cartItems[i];
+    console.log(item);
+    const row = document.createElement("tr");
+    row.classList.add("border-b");
+    row.innerHTML = `
+    <td class="py-2 px-4">
+      <div class="flex items-center space-x-2">
+        <img class="h-12 w-12 object-cover rounded-md" src="${productImageBase}${item.image}" alt="">
+        <span class="font-semibold">${item.title}</span>
+      </div>
+    </td>
+    <td class="py-2 px-4">${item.color}</td>
+    <td class="py-2 px-4">${item.size}</td>
+    <td class="py-2 px-4">${item.quantity}</td>
+    <td class="py-2 px-4">$${item.price}</td>
+    `;
+    cartConatainer.appendChild(row);
+  }
+
+  cartModal.classList.remove("hidden");
+});
+
+document
+  .getElementById("continue-shopping")
+  .addEventListener("click", function () {
+    document.getElementById("cart-modal").classList.add("hidden");
+  });
