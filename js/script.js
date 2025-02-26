@@ -15,6 +15,20 @@ for (let i = 0; i < ringButtons.length; i++) {
 
     const productImage = document.getElementById("product-image");
     // productImage.src = "../images/gray.png";
+    // productImage.src = `../images/${color}.png`;
     productImage.src = "../images/" + color + ".png";
   });
+}
+
+function selectWristSize(size) {
+  const sizes = ["S", "M", "L", "XL"];
+  for (let i = 0; i < sizes.length; i++) {
+    const button = document.getElementById("size-" + sizes[i]);
+    const elemnt = sizes[i];
+    if (size === elemnt) {
+      button.classList.add("border-purple-600");
+    } else {
+      button.classList.remove("border-purple-600");
+    }
+  }
 }
