@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smartwatch Product</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style>
+     
+    </style>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
@@ -19,11 +22,29 @@
         <div class="flex flex-col md:flex-row items-stretch gap-6">
           <div class="flex justify-center items-center md:w-1/2">
             <img
-              id="product-image"
+              id="productImage1"
               src="./images/purple.png"
               alt="Smartwatch"
-              class="h-full md:h-auto object-cover rounded-lg"
+              class="h-full md:h-auto object-cover rounded-lg " style="display:block;"
             />
+            <img
+            id="productImage2"
+            src="./images/cyan.png"
+            alt="Smartwatch"
+            class="h-full md:h-auto object-cover rounded-lg" style="display: none;"
+          />
+          <img
+          id="productImage3"
+          src="./images/gray.png"
+          alt="Smartwatch"
+          class="h-full md:h-auto object-cover rounded-lg " style="display: none;"
+        />
+        <img
+        id="productImage4"
+        src="./images/teal.png"
+        alt="Smartwatch"
+        class="h-full md:h-auto object-cover rounded-lg " style="display: none;"
+      />
           </div>
           <div
             class="p-6 md:p-8 md:w-1/2 flex flex-col justify-between"
@@ -57,26 +78,27 @@
             </div>
 
             <!-- Band Color -->
-            <div class="mt-4">
+            <div class="mt-4" id="colorBtn">
               <span class="text-sm font-semibold text-gray-700"
                 >Band Color</span
               >
               <div class="flex items-center mt-1 space-x-2">
                 <button
-                  class="w-6 h-6 rounded-full bg-purple-500 border-2 border-purple-600 ring-button"
-                  id="purple-color"
+                  class="w-6 h-6 rounded-full bg-purple-500 border-2 border-purple-600 ring-button cursor-pointer"
+                  id="purpleColor"
                 ></button>
                 <button
-                  class="w-6 h-6 rounded-full bg-teal-500 border-2 border-gray-300 ring-button"
-                  id="teal-color"
+                  class="w-6 h-6 rounded-full bg-teal-500 border-2 border-gray-300 ring-button cursor-pointer"
+                  id="tealColor"
                 ></button>
                 <button
-                  class="w-6 h-6 rounded-full bg-cyan-500 border-2 border-gray-300 ring-button"
-                  id="cyan-color"
+                  class="w-6 h-6 rounded-full bg-cyan-500 border-2 border-gray-300 ring-button cursor-pointer"
+                  id="cyanColor"
                 ></button>
                 <button
-                  class="w-6 h-6 rounded-full bg-gray-700 border-2 border-gray-300 ring-button"
-                  id="gray-color"
+                  class="w-6 h-6 rounded-full bg-gray-700 border-2 border-gray-300 ring-button cursor-pointer"
+                  
+                  id="grayColor"
                 ></button>
               </div>
             </div>
@@ -213,6 +235,6 @@
       </div>
     </div>
 
-    <script src="./js/script.js"></script>
+    <script src="./js/colorBtn.js"></script>
   </body>
 </html>
